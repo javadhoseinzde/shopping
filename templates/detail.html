@@ -1,0 +1,17 @@
+{% for cat in category %}
+   <a href="{% url 'shopping:category' cat.slug %}"> {{cat.title}}</a>
+{% endfor %}
+
+    {{product.title}} <br>
+    <a href="{{ product.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">
+      Add to cart
+      <i class="fas fa-shopping-cart ml-1"></i>
+    </a><br>
+    {{product.material}} <br>
+    {{product.description}}<br>
+    {{product.price}} <br>
+    {% for img in product.img_id.all %}
+    <img src="{{ img.imag.url }}" alt="Italian Trulli">
+    {% endfor %}
+      </form>
+

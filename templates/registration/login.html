@@ -1,0 +1,13 @@
+{% if form.errors %}
+    <p>.رمز و پسورد شما همخانی ندارد</p>
+{% else %}
+    <p>:لفطا برای ورود از فرم زیر استفاده کنید</p>
+{% endif %}
+<form action = "{% url 'auth:login' %}" method = "POST">
+    {% csrf_token %}
+    <label for="username">نام: </label>
+    <input id="username" type="text" name="username">
+    <label for="password">رمز: </label>
+    <input id="password" type="text" name="password">
+    <input type="submit" value="OK">
+</form>

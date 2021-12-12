@@ -1,0 +1,9 @@
+
+{% block title %}
+{% for category in category.products_list.all %}
+<a href="{% url 'shopping.category' category.slug %}">{{ category.title }}</a>
+{% endfor %}
+{% endblock %}
+{% block body %}
+
+{% endblock %}

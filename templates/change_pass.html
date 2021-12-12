@@ -1,0 +1,18 @@
+<div class="form-group">
+    <form method="post">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">
+                    {{ message|safe }}
+                    <a href="{% url 'auth:password_change' %}" class="close">x</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+    

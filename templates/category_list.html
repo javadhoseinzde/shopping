@@ -1,0 +1,25 @@
+<center>{{category.title}}</center>
+
+{% for produc in category.products.all %}
+{{produc.title}}
+<br>
+/////
+<br>
+{{produc.description}}
+<br>
+/////
+<br>
+{{produc.material}}
+<br>
+/////
+<br>
+{{produc.price}}
+<br>
+/////
+<br>
+<a href="{% url 'shopping:detail' produc.slug %}">link{{produc.title}}</a>
+<br>
+/////
+<br>
+<img src="{{produc.pic.url}}" alt="Italian Trulli">
+{% endfor %}
