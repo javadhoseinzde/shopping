@@ -13,5 +13,20 @@
     {% for img in product.img_id.all %}
     <img src="{{ img.imag.url }}" alt="Italian Trulli">
     {% endfor %}
-      </form>
-
+    
+    <form method="post">
+      {% csrf_token %}
+        {{ comment_form.as_p }}      
+        <button type="submit" class="btn btn-primary  btn-lg">Submit</button>   
+    </form>
+    {% for comment in comments %}
+    <div class="comments" style="padding: 10px;">
+      <p class="font-weight-bold">
+        {{ comment.user }}
+        <span class=" text-muted font-weight-normal">
+          {{ comment.created_on }}
+        </span>
+      </p>
+      {{ comment.description | linebreaks }}
+    </div>
+    {% endfor %}

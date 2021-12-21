@@ -3,8 +3,11 @@ from .models import Category, color, img, Item,Order, UserProfile, OrderItem, Or
 
 admin.site.register(UserProfile)
 admin.site.register(OrderItem)
-admin.site.register(Order)
 
+
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ['id']
+admin.site.register(Order, OrderAdmin)
 
 
 admin.site.register(Category)

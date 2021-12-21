@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+#from cart_shop.views import send_request, verify
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include('shop.urls')),
     path("", include('authen.urls')),
     path("", include('cart_shop.urls')),
-
+#    path('request/<int:id>/', send_request),
+#    path("verify/",verify),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

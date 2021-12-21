@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'authen.apps.AuthenConfig',
     'cart_shop.apps.CartShopConfig',
+    'comments.apps.CommentsConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,3 +135,21 @@ LOGIN_REDIRECT_URL = 'shopping:home'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+AZ_IRANIAN_BANK_GATEWAYS = {
+    "GATEWAYS":{
+       'ZARINPAL': {
+           'MERCHANT_CODE': 'kmjskmj123ksjm45kdi78knja5kf9panjsk',
+       },
+    },
+   'IS_SAMPLE_FORM_ENABLE': True, # اختیاری و پیش فرض غیر فعال است
+   'DEFAULT': 'ZARINPAL',
+   'CURRENCY': 'IRR', # اختیاری
+   'TRACKING_CODE_QUERY_PARAM': 'tc', # اختیاری
+   'TRACKING_CODE_LENGTH': 16, # اختیاری
+   'SETTING_VALUE_READER_CLASS': 'azbankgateways.readers.DefaultReader', # اختیاری
+   'BANK_PRIORITIES': [
+       'ZARINPAL',
+       # and so on ...
+   ], # اختیاری
+}
