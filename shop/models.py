@@ -42,11 +42,11 @@ class Item(models.Model):
     description = models.TextField(verbose_name="توضیحات")
     material = models.CharField(max_length=50, choices=MATERIAL_CHOICES, verbose_name="کیفیت")
     price = models.DecimalField(max_digits=30, null=True, decimal_places=0,verbose_name="قیمت")
+    price_discount = models.IntegerField(default=0, verbose_name="تخفیف")
     pic = models.ImageField(upload_to = "images/", verbose_name="عکس اصلی")
     categor = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="انتخاب کتگوری", related_name="products")
     color_id = models.ManyToManyField(color)
     img_id = models.ManyToManyField(img, related_name="img")
-
 
     def __str__(self):
         return self.title
@@ -63,6 +63,15 @@ class Item(models.Model):
     def get_remove_from_cart_url(self):
         return reverse("cart:remove-from-cart", kwargs={'slug': self.slug})
 
+    """def discount(self):
+        if self.price_discount == 0:
+            return self.price
+        elif self.price_discount != 0:
+            disc = self.price * self.price_discount 
+            disct =  disc - self.price
+            return disct
+
+"""
 
 
 class UserProfile(models.Model):
@@ -93,6 +102,7 @@ class OrderItem(models.Model):
 
     def get_final_price(self):
         return self.get_total_item_price()
+
 
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,

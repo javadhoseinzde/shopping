@@ -1,9 +1,95 @@
+{% load static %}	
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,600,700&display=swap" rel="stylesheet">
 
-{% block title %}
-{% for category in category.products_list.all %}
-<a href="{% url 'shopping.category' category.slug %}">{{ category.title }}</a>
-{% endfor %}
-{% endblock %}
-{% block body %}
+	<link rel="stylesheet" type="text/css" href="{% static 'website-menu-10/fonts/icomoon/style.css' %}">
 
+	<link rel="stylesheet" type="text/css" href="{% static 'website-menu-10/css/owl.carousel.min.css' %}">
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'website-menu-10/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'website-menu-10/css/bootstrap/stylee.css' %}">
+    <!-- Style -->
+	<link rel="stylesheet" type="text/css" href="{% static 'website-menu-10/css/style.css' %}">
+    <title>Home</title>
+  </head>
+  <body>
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+
+
+
+      <header class="site-navbar site-navbar-target bg-white" role="banner">
+
+        <div class="container">
+          <div class="row align-items-center position-relative">
+
+            <div class="col-lg-4">
+              <nav class="site-navigation text-right ml-auto " role="navigation">
+                <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+
+                  <li><a href="about.html" class="nav-link">ثبت نام</a></li>
+                  <li><a href="{% url 'auth:login' %}" class="nav-link">ورود</a></li>
+                  <li class="active"><a href="index.html" class="nav-link">خانه</a></li>
+
+                </ul>
+              </nav>
+            </div>
+            <div class="col-lg-4 text-center">
+              <div class="site-logo">
+                <a href="index.html">Kif Turk</a>
+              </div>
+
+
+              <div class="ml-auto toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3 text-black"></span></a></div>
+            </div>
+            <div class="col-lg-4">
+              <nav class="site-navigation text-left mr-auto " role="navigation">
+                <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                  <li><a href="blog.html" class="nav-link">زنانه</a></li>
+                  <li><a href="contact.html" class="nav-link">تماس با ما</a></li>
+                  <li><a href="services.html" class="nav-link">ست</a></li>
+
+                </ul>
+              </nav>
+            </div>
+            
+
+          </div>
+        </div>
+
+      </header>
+    <div class="hero" style="background-image: url('/static/website-menu-10/images/1.jpg');"></div>
+    <br>
+    <hr>
+    <br>
+    
+{% block content %}
+	
 {% endblock %}
+
+<br>
+<hr>
+
+<div class="footer">
+
+</div>
+    <script src="{% static 'website-menu-10/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'website-menu-10/js/popper.min.js' %}"></script>
+    <script src="{% static 'website-menu-10/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'website-menu-10/js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'website-menu-10/js/main.js' %}"></script>
+  </body>
+</html>

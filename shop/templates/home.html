@@ -1,0 +1,30 @@
+Hello World
+{% for cat in category %}<br>
+   <a href="{% url 'shopping:category' cat.slug %}"> {{cat.title}}</a>
+{% endfor %}
+<br>
+<a href="{{ oder.get_add_to_cart }}">
+    Add to cart
+  </a><br>
+/////
+<br>
+{% for produc in products %}
+    <a href="{% url 'shopping:detail' produc.slug %}">{{produc.title}}</a>
+    <br>
+/////
+<br>
+    {{produc.description}}
+    <br>
+/////
+<br>
+    {{produc.material}}
+<br>
+/////
+<br>
+    {{produc.price}}
+<br>
+/////
+<br>
+<img src="{{produc.pic.url}}" alt="Italian Trulli">
+{% endfor %}
+

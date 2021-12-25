@@ -1,6 +1,6 @@
 from django.db import models
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Category, Item
+from .models import Category, Item, OrderItem
 from comments.models import Comment
 from comments.forms import CommentForm
 from django.urls import reverse
