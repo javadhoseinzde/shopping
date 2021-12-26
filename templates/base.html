@@ -39,17 +39,21 @@
             <div class="col-lg-4">
               <nav class="site-navigation text-right ml-auto " role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-
+                {% if request.user.is_authenticated %}            
+                                  <li><a href="{% url 'auth:logout' %}" class="nav-link">خروج</a></li>
+                          hi {{user.username}}
+                            {% else %}
                   <li><a href="about.html" class="nav-link">ثبت نام</a></li>
                   <li><a href="{% url 'auth:login' %}" class="nav-link">ورود</a></li>
-                  <li class="active"><a href="index.html" class="nav-link">خانه</a></li>
+                  {% endif %}
+                  <li class="active"><a href="{% url 'shopping:home' %}" class="nav-link">خانه</a></li>
 
                 </ul>
               </nav>
             </div>
             <div class="col-lg-4 text-center">
               <div class="site-logo">
-                <a href="index.html">Kif Turk</a>
+                <a href="{% url 'shopping:home' %}">Kif Turk</a>
               </div>
 
 
@@ -61,7 +65,6 @@
                   <li><a href="blog.html" class="nav-link">زنانه</a></li>
                   <li><a href="contact.html" class="nav-link">تماس با ما</a></li>
                   <li><a href="services.html" class="nav-link">ست</a></li>
-
                 </ul>
               </nav>
             </div>
@@ -71,21 +74,17 @@
         </div>
 
       </header>
-    <div class="hero" style="background-image: url('/static/website-menu-10/images/1.jpg');"></div>
-    <br>
-    <hr>
-    <br>
+
     
 {% block content %}
 	
 {% endblock %}
 
-<br>
-<hr>
-
 <div class="footer">
-
+  <br>
+<hr>
 </div>
+
     <script src="{% static 'website-menu-10/js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'website-menu-10/js/popper.min.js' %}"></script>
     <script src="{% static 'website-menu-10/js/bootstrap.min.js' %}"></script>

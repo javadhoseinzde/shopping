@@ -15,6 +15,7 @@ def home(request):
 
 def detail(request, slug):
 	product = get_object_or_404(Item,slug=slug)
+	categorys = Category.objects.filter(status=True, slug=slug)
 	comments = Comment.objects.all()
 	new_comment = None
 	# Comment posted
@@ -29,7 +30,7 @@ def detail(request, slug):
 			return redirect(reverse('shopping:detail', kwargs={"slug": product.slug}))
 	else:
 		comment_form = CommentForm()
-	return render(request,'detail.html',{'product': product,'comments':comments,'comment_form':comment_form,})
+	return render(request,'detail.html',{'product': product,'comments':comments,'comment_form':comment_form,'categorys':categorys})
 
 def category(request, slug):
 	context ={ 

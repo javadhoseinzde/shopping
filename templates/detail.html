@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static  'website-menu-10/css/bootstrap/styles.css' %}">
+<!--
 {% for cat in category %}
    <a href="{% url 'shopping:category' cat.slug %}"> {{cat.title}}</a>
 {% endfor %}
@@ -10,7 +14,8 @@
     {{product.material}} <br>
     {{product.description}}<br>
     {{product.price}} <br>
-    {% for img in product.img_id.all %}
+         {% for img in product.img_id.all %}
+
     <img src="{{ img.imag.url }}" alt="Italian Trulli">
     {% endfor %}
     
@@ -29,4 +34,128 @@
       </p>
       {{ comment.description | linebreaks }}
     </div>
+{% endfor %}-->
+{% block content %}   
+    <br>
+    <br>
+    <div class="container">
+  <div class="row">
+    <div class="d-sm-flex">
+    <div class="col">
+<!--Carousel Wrapper-->
+<div id="carousel-example-1z" class="carousel slide carousel-fade " data-ride="carousel">
+    <!--Indicators-->
+    <!--<ol class="carousel-indicators w-25 p-5">
+         {% for img in product.img_id.all %}
+      <li data-target="#carousel-example-1z" data-slide-to="{{ forloop.counter0 }}" class=" {% if forloop.counter0 == 0 %}  active {% endif %}"></li>
     {% endfor %}
+    </ol>-->
+    <!--/.Indicators-->
+    <!--Slides-->
+    <div class="carousel-inner" style="width: 100%; box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+" role="listbox">
+         {% for img in product.img_id.all %}
+      <div class="carousel-item  {% if forloop.counter0 == 0 %} active {% endif %}">
+        <img class="d-block w-100" src="{{img.imag.url}}"
+          alt="First slide">
+      </div>
+      {% endfor %}
+      <!--/First slide-->
+    <!--/.Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev " href="#carousel-example-1z" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+  </div> 
+   </div>
+ </div>
+ <div class="card bg-dark text-light m-3" style="box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;">
+  <div class="card-body">
+  <div class="col m-3 ml-5 d-sm-flex-">
+    <div class="d-sm-flex">
+      <div>
+        <h4 class="">کد:{{product.title}}</h4>
+      </div>
+      </div>
+      <div class="">
+        <h4 class="">توضیحات:{{product.description}}</h4>
+      </div>
+      <div class="">
+        <h4 class="">جمس:{{product.material}}</h4>
+      </div>
+      <div class="">
+        <h4 class="">قیمت:{{product.price}}</h4>
+      </div>
+      <div class="">
+    {% for img in product.color_id.all %}
+        <h4 class="">رنگ:{{img.title}}</h4>
+    {% endfor %}
+      </div>
+    </div>
+</div>
+</div>  
+     <div class="col d-sm-flex">
+      <div class="card" style= "box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px ">
+  <div class="card-body">
+    <h5 class="card-title">افزودن به سبد خرید</h5>
+    <!--<h6 class="card-subtitle mb-2 text-muted">افزودن به سبد خرید</h6> -->
+    <p class="card-text">تعداد مورد نظر و رنگ ان را انتخاب کنید و برای اتمام خرید به سبد خرید بروید</p>
+
+  <select class="custom-select" id="inputGroupSelect03">
+    <option selected>انتخاب رنگ</option>
+    <option value="1">زرد</option>
+    <option value="2">ابی</option>
+    <option value="3">قرمز</option>
+  </select>
+  <br>
+   <select class="custom-select" id="inputGroupSelect03">
+    <option selected>تعداد</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>    
+  </select>
+  <br>
+  <br>
+    <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">ثبت</button>
+  </div>
+  </div>
+</div>
+      </div>
+  </div>
+</div>
+</div>
+{% endblock %}
